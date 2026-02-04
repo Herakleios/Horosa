@@ -1,0 +1,55 @@
+spring:
+  datasource:
+    url: jdbc:mysql://10.0.12.14:3306/xingque
+    username: root
+    password: Horosa)145:19-1
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      minimum-idle: 3
+      maximum-pool-size: 10
+      max-lifetime: 30000
+      connection-test-query: SELECT 1
+  jackson:
+    property-naming-strategy: SNAKE_CASE
+
+# mybatis
+mybatis:
+#  configuration:
+#    interceptors:
+#      - com.github.pagehelper.PageInterceptor
+#    map-underscore-to-camel-case: true
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  mapper-locations: classpath*:mapper/*.xml
+  type-aliases-package: com.xinguqe.xingque_api.entity
+  type-handlers-package: com.xinguqe.xingque_api.handler
+  config-location: classpath:mybatis-config.xml
+server:
+  port: 8080
+
+# Actuator Web 访问端口
+management:
+  server:
+    port: 8081
+  endpoints:
+    jmx:
+      exposure:
+        include: '*'
+    web:
+      exposure:
+        include: '*'
+
+  endpoint:
+    health:
+      show-details: always
+
+# trigram service 配置
+trigram-service:
+  protocol: http
+  host: 127.0.0.1
+  port: 5000
+
+# jwt 配置
+jwt:
+  secret: jg90T95kG0532k#k5901h
+  expiration: 2592000
+  tokenHead: tokenHead

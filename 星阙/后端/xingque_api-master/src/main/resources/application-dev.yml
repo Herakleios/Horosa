@@ -1,0 +1,11 @@
+
+spring:
+  config:
+    activate:
+      on-profile: dev
+  datasource:
+    url: jdbc:mysql://localhost:3309/xingque
+    username: root
+    password: root
+server:
+  port: 8080
